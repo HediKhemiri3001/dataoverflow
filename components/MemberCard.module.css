@@ -1,0 +1,18 @@
+.card {
+  width: 150px;
+  flex: 1 0 50%;
+  border: 1px solid black;
+  padding: 20px;
+}
+.avatar {
+  border-radius: 100%;
+}
+.avatar:hover {
+  cursor: pointer;
+  animation: avatarhover 1s forwards;
+}
+@keyframes avatarhover {
+  100% {
+    opacity: 0.5;
+  }
+}
