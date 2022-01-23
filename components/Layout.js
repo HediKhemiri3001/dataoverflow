@@ -8,7 +8,7 @@ export default function Layout(props) {
     <Fragment>
       <nav className={style.navbar}>
         <Image
-          src="/../public/members/oumayma.jpg"
+          src="/members/oumayma.jpg"
           height={50}
           width={50}
           className={style.logo}
