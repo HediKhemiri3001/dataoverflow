@@ -22,7 +22,13 @@ apiRoute.post(async (req, res) => {
     await schema.validate({
       url,
     });
-    const video = await Video.create({ url });
+    let ToBeInsertedUrl = new URL(url);
+    ToBeInsertedUrl = ToBeInsertedUrl.search.split("&")[0];
+    ToBeInsertedUrl = ToBeInsertedUrl.replace("?v=", "");
+    console.log(ToBeInsertedUrl);
+    const video = await Video.create({
+      url: ToBeInsertedUrl,
+    });
     res.status(201).json(video);
   } catch (err) {
     res.status(500).json(err);
