@@ -59,6 +59,11 @@ export default function uploadRemove() {
       data: { image },
     });
     console.log("Image Deleted");
+    setImages((prev) => {
+      return prev.filter((value) => {
+        return value != image;
+      });
+    });
     onListClickHandler();
   };
 
@@ -88,7 +93,7 @@ export default function uploadRemove() {
             return (
               <>
                 <Image
-                  src={"/test/" + data}
+                  src={"/slider/" + data}
                   alt="me"
                   width="120"
                   height="120"

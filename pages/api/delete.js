@@ -21,7 +21,7 @@ const serverPath = (staticFilePath) => {
     staticFilePath
   );
 };
-const directoryPath = serverPath("public\\test");
+const directoryPath = serverPath("public/slider");
 apiRoute.delete(async (req, res) => {
   try {
     const ImageUrl = req.body.image;

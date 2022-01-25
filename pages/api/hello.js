@@ -5,7 +5,7 @@ const path = require("path");
 import getConfig from "next/config";
 const upload = multer({
   storage: multer.diskStorage({
-    destination: "./public/test",
+    destination: "./public/slider",
     filename: (req, file, cb) => cb(null, file.originalname),
   }),
 });
@@ -33,7 +33,7 @@ const serverPath = (staticFilePath) => {
     staticFilePath
   );
 };
-const directoryPath = serverPath("public\\test");
+const directoryPath = serverPath("public/slider");
 apiRoute.get(async (req, res) => {
   try {
     const files = await promises.readdir(directoryPath);
