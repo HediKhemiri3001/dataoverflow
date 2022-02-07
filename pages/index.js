@@ -1,6 +1,7 @@
 import Head from "next/head";
-import Image from "next/image";
+import ContentTable from "../components/ContentTable";
 import Layout from "../components/Layout";
+import Slider from "../components/Slider";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
@@ -11,6 +12,8 @@ export default function Home() {
         <meta name="description" content="Data overflow is bla bla bla " />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Slider />
+      <ContentTable />
     </Layout>
   );
 }
