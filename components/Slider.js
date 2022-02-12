@@ -6,7 +6,7 @@ export default function Slider(props) {
   const [imagesReady, setImagesReady] = useState(false);
   //FETCHING SLIDER IMAGES FROM FILESYSTEM THROUGH API.
   const images = async () => {
-    const response = await axios.get("/api/hello");
+    const response = await axios.get("/api/slider");
     if (response.data.length == 0) {
       setImagesReady(true);
       return null;

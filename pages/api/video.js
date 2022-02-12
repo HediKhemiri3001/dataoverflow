@@ -19,8 +19,10 @@ const apiRoute = nextConnect({
 apiRoute.post(async (req, res) => {
   try {
     const url = req.body.url;
+    const season = req.body.season;
     await schema.validate({
       url,
+      season,
     });
     let ToBeInsertedUrl = new URL(url);
     ToBeInsertedUrl = ToBeInsertedUrl.search.split("&")[0];
@@ -28,6 +30,7 @@ apiRoute.post(async (req, res) => {
     console.log(ToBeInsertedUrl);
     const video = await Video.create({
       url: ToBeInsertedUrl,
+      season: season,
     });
     res.status(201).json(video);
   } catch (err) {
