@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import Image from "next/image";
+import axios from "axios";
 
 export default function ContentAdd() {
   const [checkboxClicked, setCheckboxClicked] = useState(false);
   const [message, setMessage] = useState("");
+  const [uploadedImage, setUploadedImage] = useState(null);
   const onCheckboxClick = () => {
     setCheckboxClicked(!checkboxClicked);
   };
@@ -39,6 +42,10 @@ export default function ContentAdd() {
     formRef.current?.reset();
     setMessage("");
   };
+  const fileUploadChange = (event) => {
+    const [file] = event.target.files;
+    if (file) setUploadedImage(URL.createObjectURL(file));
+  };
   return (
     <form ref={formRef} onSubmit={onSubmitHandler}>
       <input type="text" name="name" placeholder="Content name."></input>
@@ -51,17 +58,22 @@ export default function ContentAdd() {
       <button type="button" onClick={onClickHandler}>
         Upload Single File
       </button>
+      {uploadedImage && (
+        <Image src={uploadedImage} width="50" height="50"></Image>
+      )}
       <input
         multiple={false}
         name={"thumbnail"}
         ref={fileInputRef}
         style={{ display: "none" }}
         type="file"
+        onChange={fileUploadChange}
       />
       <label for="buttonlinkboolean">
         Does this content include a link to a page ?
       </label>
       <input
+        accept="image/*"
         type="checkbox"
         name="buttonlinkboolean"
         onClick={onCheckboxClick}
@@ -73,6 +85,7 @@ export default function ContentAdd() {
           <input type="text" name="buttonlink"></input>
         </>
       )}
+      <input type="submit" value="submit"></input>
     </form>
   );
 }
