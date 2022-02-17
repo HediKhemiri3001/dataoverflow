@@ -1,7 +1,7 @@
 import Head from "next/head";
-import ContentTable from "../components/ContentTable";
-import Layout from "../components/Layout";
-import Slider from "../components/Slider";
+import ContentTable from "../components/userComponents/ContentTable";
+import Layout from "../components/userComponents/Layout";
+import Slider from "../components/userComponents/Slider";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {

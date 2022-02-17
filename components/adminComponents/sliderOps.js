@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { useRef } from "react";
 import axios from "axios";
-export default function SliderDelete() {
+export default function SliderOps() {
   const [images, setImages] = useState([]);
   const [imagesReady, setImagesReady] = useState(false);
   const [message, setMessage] = useState("Click me to render the images.");

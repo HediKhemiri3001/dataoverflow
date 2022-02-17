@@ -1,6 +1,7 @@
+//Needs correction to accomodate facebook videos and not youtube.
 import nextConnect from "next-connect";
-import dbConnect from "../../utils/mongo";
-import Video from "../../models/Video";
+import dbConnect from "../../../utils/mongo";
+import Video from "../../../models/Video";
 import * as yup from "yup";
 let schema = yup.object().shape({
   url: yup.string().trim().url().required(),
@@ -40,6 +41,14 @@ apiRoute.post(async (req, res) => {
 apiRoute.get(async (req, res) => {
   try {
     const video = await Video.find();
+    res.status(200).json(video);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+apiRoute.delete(async (req, res) => {
+  try {
+    const video = await Video.findByIdAndDelete(req.body.url);
     res.status(200).json(video);
   } catch (err) {
     res.status(500).json(err);

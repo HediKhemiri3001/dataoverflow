@@ -1,7 +1,7 @@
 import Head from "next/head";
-import MemberCard from "../components/MemberCard";
+import MemberCard from "../components/userComponents/MemberCard";
 import style from "./aboutus.module.css";
-import Layout from "../components/Layout";
+import Layout from "../components/userComponents/Layout";
 const MEMBERS = [
   {
     name: "Fatma Chaouech",
