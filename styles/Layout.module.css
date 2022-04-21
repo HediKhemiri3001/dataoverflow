@@ -1,3 +1,46 @@
 .navbar_button {
-  background-color: red;
+  margin: 1em;
+  padding: 0.4em;
+  color: #98bfa2;
+}
+.active-btn {
+  border-bottom: solid 0.2em #98bfa2;
+}
+@media only screen and (max-width: 1000px) {
+  .navbar_buttons {
+    display: none;
+    justify-content: center;
+    flex-direction: column;
+    float: right;
+  }
+
+  .navbar_button {
+    width: 100%;
+  }
+  #menu_button {
+    display: block;
+  }
+}
+#menu_button {
+  display: none;
+  margin-top: 7em;
+  margin-right: 6em;
+}
+.navbar {
+  top: 0;
+  z-index: 5;
+  position: fixed;
+  background-color: whitesmoke;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 2em;
+}
+.navbar_buttons {
+  margin-top: 7em;
+  margin-right: 3.5em;
+}
+.logo {
+  margin-left: 3.5em;
+  margin-top: 2em;
 }

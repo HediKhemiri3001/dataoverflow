@@ -1,0 +1,53 @@
+.home {
+  padding-top: 10.5em;
+  display: flex;
+  overflow: hidden;
+  justify-content: space-between;
+}
+.img {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  height: 800px;
+  width: 800px;
+  margin-top: 5em;
+  margin-right: 2em;
+}
+.frontimage {
+  z-index: -1;
+}
+.backimage {
+  z-index: -2;
+}
+.pictures_section {
+  height: 800px;
+  padding-top: 5em;
+}
+.background-img-left {
+  position: absolute;
+  z-index: -3;
+  overflow: hidden;
+  left: -300px;
+  top: 0px;
+  height: 800px;
+  width: 800px;
+}
+.background-img-right {
+  position: absolute;
+  z-index: -3;
+  top: 100px;
+  right: -450px;
+  height: 800px;
+  width: 800px;
+}
+.text_section {
+  padding: 3em;
+}
+.title {
+  font-size: 5em;
+  margin-top: 0.4em;
+}
+.text {
+  font-size: 1.5em;
+  margin-left: 1em;
+}

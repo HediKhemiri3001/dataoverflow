@@ -1,6 +1,6 @@
 import Head from "next/head";
 import MemberCard from "../components/userComponents/MemberCard";
-import style from "./aboutus.module.css";
+import style from "/styles/aboutus.module.css";
 import Layout from "../components/userComponents/Layout";
 const MEMBERS = [
   {
@@ -67,22 +67,13 @@ const MEMBERS = [
 
 export default function AboutUs() {
   return (
-    <Layout>
-      <div className={style["container"]}>
-        <Head>
-          <title>About Us - Data Overflow</title>
-        </Head>
-        <main>
-          <p>About our club</p>
-          <div className={style["members_container"]}>
-            {MEMBERS.map((member) => {
-              return (
-                <MemberCard member={member} key={member.name}></MemberCard>
-              );
-            })}
-          </div>
-        </main>
-      </div>
-    </Layout>
+    <>
+      <Head>
+        <title>About us - Data Overflow</title>
+      </Head>
+      <Layout>
+        <div className={style["container"]}></div>
+      </Layout>
+    </>
   );
 }

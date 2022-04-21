@@ -1,0 +1,39 @@
+.content_table {
+  margin: 5em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.content {
+  display: flex;
+  padding: 0;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: stretch;
+  align-content: stretch;
+}
+.content_image {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 50%;
+  flex-grow: 1;
+}
+.content_text {
+  display: flex;
+  width: 50%;
+  height: 25em;
+  padding: 1.5em;
+  flex-grow: 1;
+  flex-direction: column;
+  align-content: space-between;
+}
+.content_btn {
+  width: 8.5em;
+  height: 3em;
+  align-self: flex-end;
+}
+.content_description {
+  height: 15em;
+}
+.content_table_header {
+  text-align: center;
+}

@@ -39,7 +39,6 @@ apiRoute.get(async (req, res) => {
     const files = await promises.readdir(directoryPath);
     res.status(200).json(files);
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
 });

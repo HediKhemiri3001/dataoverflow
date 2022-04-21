@@ -1,45 +1,34 @@
-import axios from "axios";
-import { useState } from "react";
+import ContentTableRow from "./ContentTableRow";
+import style from "/styles/userComponents/Content.module.css";
 
-export default function ContentTable(props) {
-  const [contentReady, setContentReady] = useState(false);
-  //FETCHING CONTENT DATA STORED IN DB THROUGH API
-  const contentData = async () => {
-    const response = await axios.get("/api/content");
-    if (response.data.length == 0) {
-      setContentReady(true);
-      return null;
-    } else {
-      setContentReady(true);
-      return response.data.toArray();
-    }
-  };
+export default function ContentTable({ contentData }) {
   //TO ENABLE ALTERNATING CONTENT ELEMENT EFFECT IF ODD RIGHT ELSE LEFT
   const alternateLeftRight = (index) => {
     return index % 2 ? "LEFT" : "RIGHT";
   };
 
   return (
-    <div className="content_table">
-      {contentData.length == 0 || !contentReady ? (
-        <>
-          <h1 className="error_message">Nothing to show</h1>
-        </>
-      ) : (
-        contentData.map((data, index) => {
-          return (
-            <>
-              <ContentTableRow
-                key={index}
-                name={data.name}
-                description={data.description}
-                thumbnail={data.thumbnail}
-                position={alternateLeftRight(index)}
-              />
-            </>
-          );
-        })
-      )}
-    </div>
+    <>
+      <h1 className={style["content_table_header"]}>
+        Get up to what we're doing at the moment!
+      </h1>
+      <div className={style["content_table"]}>
+        {contentData.length != 0 &&
+          contentData.map((data, index) => {
+            return (
+              <>
+                <ContentTableRow
+                  key={index}
+                  name={data.name}
+                  description={data.description}
+                  thumbnail={data.thumbnail}
+                  buttonlink={data.buttonlink}
+                  position={alternateLeftRight(index)}
+                />
+              </>
+            );
+          })}
+      </div>
+    </>
   );
 }

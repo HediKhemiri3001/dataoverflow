@@ -18,15 +18,16 @@ export default function SliderOps() {
       },
     };
 
-    const response = await axios.post("/api/slider/slider", formData, config);
-
-    console.log("response", response.data);
+    const response = await axios.post("/api/slider", formData, config);
+    if (response.status == 200)
+      setImages((await axios.get("/api/slider")).data);
   };
   const fileInputRef = useRef(null);
   const formRef = useRef(null);
   const onClickHandler = () => {
     fileInputRef.current?.click();
   };
+
   const onChangeHandler = (event) => {
     if (!event.target.files?.length) {
       return;
@@ -44,7 +45,7 @@ export default function SliderOps() {
   };
   const onListClickHandler = async () => {
     setMessage("Loading");
-    const response = await axios.get("/api/slider/slider");
+    const response = await axios.get("/api/slider");
     if (response.data.length == 0) {
       setMessage("No images");
     } else {
@@ -56,7 +57,6 @@ export default function SliderOps() {
     const response = await axios.delete("/api/slider/delete/", {
       data: { image },
     });
-    console.log("Image Deleted");
     setImages((prev) => {
       return prev.filter((value) => {
         return value != image;

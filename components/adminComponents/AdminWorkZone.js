@@ -9,19 +9,28 @@ export default function AdminWorkZone(props) {
   return (
     <>
       <div className="list_of_buttons">
-        {props.children.map((child, index) => {
-          return (
-            <input
-              key={index}
-              index={index}
-              type="button"
-              value={index + 1 + "-" + child.props.label}
-              onClick={buttonClickHandler}
-            ></input>
-          );
-        })}
+        {props.children.length > 1 ? (
+          props.children.map((child, index) => {
+            return (
+              <input
+                key={index}
+                index={index}
+                type="button"
+                value={index + 1 + "-" + child.props.label}
+                onClick={buttonClickHandler}
+              ></input>
+            );
+          })
+        ) : (
+          <input
+            key={0}
+            index={0}
+            type="button"
+            value={props.children.props.label}
+          ></input>
+        )}
       </div>
-      {props.children[childShown]}
+      {props.children.length > 1 ? props.children[childShown] : props.children}
     </>
   );
 }

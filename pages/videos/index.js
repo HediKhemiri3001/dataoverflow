@@ -1,4 +1,4 @@
-import Layout from "../../components/Layout";
+import Layout from "../../components/userComponents/Layout";
 import Head from "next/head";
 import { useState } from "react";
 import axios from "axios";
@@ -60,7 +60,7 @@ const extractSeasons = (videos) => {
   return numberOfSeasons;
 };
 export const getServerSideProps = async () => {
-  const res = await axios.get("http://localhost:3000/api/video");
+  const res = await axios.get("http://localhost:3000/api/video/video");
   console.log(res.data);
   return {
     props: {
